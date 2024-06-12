@@ -1,0 +1,91 @@
+<!--HTML in en-US-->
+<!DOCTYPE html>
+<html lang="en">
+
+<!--===START OF CODE===-->
+<!--Necessary declarations-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--===WEBPAGE TAB===-->
+    <!--Webpage title-->
+    <title>Managing Moves.app</title>
+    <!--Tab icon-->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📦</text></svg>">
+
+    <!--===DEPENDENCIES===-->
+    <!--Node's FS for ExcelJS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    <!--ExcelJS, for interfacing with Excel from JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+    <!--JQuery, for interacting with the DOM-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--Instantiating normalize.css, because we like consistency and so do people-->
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <!--Implementing Tailwind.css for legibility and ease of development-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--Feather Icon Library-->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!--Instantiating our own CSS, which we need because personal reasons-->
+    <!--<link rel="stylesheet" href="/app/components/css/style.css"/> (Commented out because Tailwind replaces the need for a personal CSS file)-->
+    <!--Our personal site script we use to render and edit form elements with JQuery-->
+    <script src="/app/components/js/index.js"></script>
+</head>
+
+<!--===SITE CODE===-->
+<body>
+    <!--Main screen and background color-->
+    <main class="h-dvh bg-lime-700 bg-no-repeat bg-cover bg-center">
+
+        <!--Header-->
+        <div class="flex justify-start flex-row">
+            <!--Managed Moves logo-->
+            <a href="https://managedmoves.com/" class="scale-75 flex-initial"><img class="bg-lime-700" src="/app/img/managed_moves_logo.png"></a>
+            <p class="p-1 m-1 h-14 flex flex-row text-center bg-white font-mono font-extrabold text-4xl rounded-md shadow-xl place-self-center flex-initial">
+                <i data-feather="package" class="m-1 place-self-center"></i>
+                Managing Moves.app
+                <i data-feather="package" class="m-1 place-self-center"></i>
+            </p>
+            <a href="https://github.com/NoahJRalph" class="text-black place-self-center underline"><p>Made by Noah J. Ralph</p></a>
+        </div>
+
+        <!--Top Site Options-->
+        <div class="flex flex-row">
+            <input class="p-1 m-2 flex rounded-md bg-white text-black text-xl font-mono font-bold text-black text-pretty" type="text" placeholder="[NYI] Client Name"></input>
+            <button class="p-1 m-2 flex flex-row content-center bg-lime-950 transition hover:bg-black text-white font-bold underline text-xl text-left rounded-full shadow-xl">
+                <i data-feather="search" class="m-1 place-self-center"></i>
+                [NYI] Search Client Database
+            </button>
+        </div>
+
+        <!--Site form-->
+        <div id="masterContainer" class="p-1 m-2 h-3/5 overflow-auto flex flex-wrap flex-row text-center rounded-md bg-white shadow-xl">
+            <!--Populated from our index.js class using JQuery-->
+            <form class="p-1 m-1 flex flex-wrap flex-col justify-start text-left text-lg underline font-bold">
+                Client Info:
+                <div id="clientInfoArray" class="grid grid-flow-row-dense grid-cols-8 grid-rows-auto text-base"></div>
+                Contact Info:
+                <div id="contactInfoArray" class="grid grid-flow-row-dense grid-cols-8 grid-rows-auto text-base"></div>
+                Building Info:
+                <div id="buildingInfoArray" class="grid grid-flow-row-dense grid-cols-8 grid-rows-auto text-base"></div>
+                Date Info:
+                <div id="dateInfoArray" class="grid grid-flow-row-dense grid-cols-8 grid-rows-auto text-base"></div>
+            </form>
+        </div>
+
+        <!--Bottom Site Options-->
+        <div class="flex flex-row">
+            <button id="saveFiles" class="p-1 m-2 flex flex-row content-center bg-lime-950 transition hover:bg-black text-white font-bold underline text-xl text-center rounded-full shadow-xl">
+                <i data-feather="save" class="m-1 place-self-center"></i>
+                Finalize (Export as CSV for TeamUp Import)
+            </button>
+            <button id="updateData" class="p-1 m-2 flex flex-row content-center bg-lime-950 transition hover:bg-black text-white font-bold underline text-xl text-center rounded-full shadow-xl">
+                <i data-feather="upload-cloud" class="m-1 place-self-center"></i>
+                [NYI] Update Data (Sends Updated Data to Database)
+            </button>
+        </div>
+
+        <!--===SCRIPTS===-->
+    </main>
+</body>
